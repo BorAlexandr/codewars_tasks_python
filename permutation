@@ -1,0 +1,14 @@
+# In this kata you have to create all permutations of an input string and remove duplicates, if present.
+# This means, you have to shuffle all letters from the input in all possible orders.
+
+import random
+
+
+def permutations(text):
+    l = len(text)
+    first = [text]
+    res = [''.join(random.sample(text, l)) for i in range(l*l) if ''.join(random.sample(text, l)) not in first]
+    res.append(text)
+    return list(set(res))
+
+print(permutations('abby'))
